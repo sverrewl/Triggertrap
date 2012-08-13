@@ -383,6 +383,7 @@ void TTUI::resetCheck()
 					print("reset");
 					setCursor(0,1);
 					print("memory");
+					delay(500); // we need to let user aware that the unit IS reset.
 					
 					for(uint8_t i=0;i<NUM_OF_SENSORS;++i)
 					{

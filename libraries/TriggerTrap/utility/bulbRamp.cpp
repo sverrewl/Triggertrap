@@ -27,7 +27,7 @@
  * 
  ***********************************************************************************/
 
-#include "BulbRamp.h"
+#include "bulbramp.h"
 
 //mode menu title
 const prog_char bulbMenu[] PROGMEM= {"BulbRamp"};

@@ -80,13 +80,13 @@
  * 
  ***********************************************************************************/
 
- #define CANON   
- #define FUJI
- #define NIKON	
- #define OLYMPUS
- #define PENTAX
- #define SONYCAM
- #define WLDC100
+ #define CANON
+// #define FUJI
+// #define NIKON	
+// #define OLYMPUS
+// #define PENTAX
+// #define SONYCAM
+// #define WLDC100
 
 /*** FOCUS, SHUTTER, AND SLEEP SETTINGS ********************************************
  * 	
@@ -124,7 +124,7 @@
  #ifdef TT_SHIELD
 	const byte START_BUTTON = 7;			// D7  = Digital in - Start button
 	const byte FOCUS_TRIGGER_PIN = 9;		// D13 = Digital out - Camera Trigger A
-    const byte SHUTTER_TRIGGER_PIN = 8;		// D12 = Digital out - Camera Trigger B
+  const byte SHUTTER_TRIGGER_PIN = 8;		// D12 = Digital out - Camera Trigger B
 	const byte LASER_SENSOR = A3; 			// A3  = Laser sensor
 	const byte AMBIENT_LIGHT_SENSOR = A3;	// A3  = Ambient light sensor
 	const byte SOUND_IN = A5;				// A5  = Sound sensor
@@ -135,7 +135,7 @@
 	const byte START_BUTTON = 2;			// D2  = Digital in - Start button 
 	const byte KEY_CHANGE = 3;				// D3  = Digital in - key change interrupt for touch ic
 	const byte FOCUS_TRIGGER_PIN = 13;		// D13 = Digital out - Camera Trigger A
-    const byte SHUTTER_TRIGGER_PIN = 12;	// D12 = Digital out - Camera Trigger B
+  const byte SHUTTER_TRIGGER_PIN = 12;	// D12 = Digital out - Camera Trigger B
 	const byte LASER_SENSOR = A6; 			// A6  = Laser Sensor
 	const byte AMBIENT_LIGHT_SENSOR = A0;	// A0  = Ambient light sensor
 	const byte SOUND_IN = A7;				// A7  = Sound sensor
