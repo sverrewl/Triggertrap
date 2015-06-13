@@ -31,7 +31,7 @@
 
 TriggerTrap::TriggerTrap()
 {
-	
+
 }
 
 void TriggerTrap::setup()
@@ -46,27 +46,27 @@ void TriggerTrap::setup()
 	triggers[3] = &timeLapse;
 	triggers[4] = &aux;
 	triggers[5] = &bulbRamp;
-	
+
 	tui.setup(triggers);
 }
 
 void TriggerTrap::update()
 {
-	 tui.update(); //update the UI
+	tui.update(); //update the UI
 }
 
 boolean TriggerTrap::trigger()
 {	
 	boolean triggerStatus = false;
-	 
-  	if(tui.trapActive()) //if start button pressed = true
-    {
-    	//call trigger function of active sensor object, held in triggers array
-    	triggerStatus = triggers[tui.trigger()]->trigger(); 
+
+	if(tui.trapActive()) //if start button pressed = true
+	{
+		//call trigger function of active sensor object, held in triggers array
+		triggerStatus = triggers[tui.trigger()]->trigger(); 
 	}
-	
+
 	return triggerStatus;
-	
+
 }
 
 int TriggerTrap::triggerMode()

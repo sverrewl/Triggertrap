@@ -1,6 +1,6 @@
 /************************************************************************************
  * 	
- * 	Name    : Triggertrap bulbramp.h                         
+ * 	Name    : Triggertrap BulbRamp.h                         
  * 	Author  : Noah Shibley / NoMi Design                         
  * 	Date    : July 10th 2011                                    
  * 	Version : 0.1                                              

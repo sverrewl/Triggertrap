@@ -39,11 +39,11 @@
 #include <TTSleep.h>
 #include "TTConfig.h"
 
- #ifdef HARDWARE_TEST  //set in TTConfig.h used for factory QA
-	#include "utility/HWTest.h"
- #else
-	#include "utility/TTUI.h"
- #endif
+#ifdef HARDWARE_TEST					//set in TTConfig.h used for factory QA
+#include "utility/HWTest.h"
+#else
+#include "utility/TTUI.h"
+#endif
 
 #include "utility/TTIRremote.h"
 #include "utility/trigger.h"
@@ -52,51 +52,51 @@
 #include <utility/trigger.h>
 #include <utility/sound.h>
 #include <utility/timelapse.h>
-#include <utility/bulbramp.h>
+#include <utility/bulbRamp.h>
 #include <auxiliary.h>
 
-	const int LASER_TRIG = 0;
-	const int SOUND_TRIG = 1;
-	const int LIGHT_TRIG = 2;
-	const int TIMELAPSE_TRIG = 3; 
-	const int BULB_TRIG = 4;
-	const int AUX_TRIG= 5;
-	 
+const int LASER_TRIG = 0;
+const int SOUND_TRIG = 1;
+const int LIGHT_TRIG = 2;
+const int TIMELAPSE_TRIG = 3; 
+const int BULB_TRIG = 4;
+const int AUX_TRIG= 5;
+
 
 
 class TriggerTrap {
 
-public:
+	public:
 
-	
-	TriggerTrap();
-	void setup();
-	void update();
-	boolean trigger();
-	int triggerMode();
 
-private:
+		TriggerTrap();
+		void setup();
+		void update();
+		boolean trigger();
+		int triggerMode();
 
-	//arduino sleep object, not a sensor
-	Sleep sleep; 
+	private:
 
-	//the UI object, and the sensor objects
-	
-	#ifdef HARDWARE_TEST 
+		//arduino sleep object, not a sensor
+		Sleep sleep; 
+
+		//the UI object, and the sensor objects
+
+#ifdef HARDWARE_TEST 
 		HWTest tui;
-	#else //NORMAL TT
+#else //NORMAL TT
 		TTUI tui;
-	#endif
+#endif
 
-	Trigger *triggers[NUM_OF_SENSORS];	
-	Laser laser;
-	Light light;
-	Sound mic; 
-	TimeLapse timeLapse; 
-	Aux aux;
-	BulbRamp bulbRamp;
+		Trigger *triggers[NUM_OF_SENSORS];	
+		Laser laser;
+		Light light;
+		Sound mic; 
+		TimeLapse timeLapse; 
+		Aux aux;
+		BulbRamp bulbRamp;
 
-	
+
 
 };
 

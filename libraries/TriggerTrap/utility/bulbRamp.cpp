@@ -27,19 +27,19 @@
  * 
  ***********************************************************************************/
 
-#include "bulbramp.h"
+#include "bulbRamp.h"
 
 //mode menu title
-const prog_char bulbMenu[] PROGMEM= {"BulbRamp"};
+const char PROGMEM bulbMenu[]= {"BulbRamp"};
 
  //option Menu titles
-const prog_char delta[] PROGMEM="interval";
-const prog_char startdelay[] PROGMEM="delay1st";
-const prog_char duration[] PROGMEM = "duration";
-const prog_char startExposure[] PROGMEM = "start";
-const prog_char endExposure[] PROGMEM = "end";
+const char PROGMEM delta[]="interval";
+const char PROGMEM startdelay[]="delay1st";
+const char PROGMEM duration[] = "duration";
+const char PROGMEM startExposure[] = "start";
+const char PROGMEM endExposure[] = "end";
 
-const prog_char * bulbOptionMenu[] PROGMEM  = 	   //options menu order
+const char PROGMEM * const bulbOptionMenu[]  = 	   //options menu order
 {   
 delta,
 startdelay,
@@ -453,10 +453,12 @@ void BulbRamp::incDecFraction(int optionConst, boolean incDec, int incDecAmt, ch
 				     msValue = (unsigned) 1000/shutterSpeedDenoms[fractionIndex];
 				}
 		  }		
-		  else if(option(optionConst) < 60000)//10-60sec
+		  else if(option(optionConst) <= 60000)//10-60sec
 		  {
 				msValue = option(optionConst) + incSec;
+				if(msValue > 60000)	msValue = 60000; //limit 60sec
 		  }
+		  
 		
 		
 		  setOption(optionConst,msValue);
@@ -521,7 +523,7 @@ void BulbRamp::fractionToString(int optionConst, int fraction, char buffer[])
 		strcat(buffer,"sec");	
 		strcat(buffer,'\0');
 	 }	
-	 else if(option(optionConst) < 60000)
+	 else if(option(optionConst) <= 60000) 
 	 {
 		float secf = (float) option(optionConst)/1000; //set from EndExposure or Start
 		dtostrf(secf, 3, 1, tempBuffer); //avr lib float to str
@@ -556,7 +558,7 @@ void BulbRamp::getModeMenu(char buffer[])
 void BulbRamp::getOptionMenu(char buffer[])
 {
 	 //reads the timeSelectMenu options from flash memory
-	 strcpy_P(buffer, (const prog_char *)pgm_read_word(&(bulbOptionMenu[select_])));
+	 strcpy_P(buffer, (const char PROGMEM *)pgm_read_word(&(bulbOptionMenu[select_])));
 }
 
 /***********************************************************
